@@ -40,13 +40,9 @@ function patchFile(filePath) {
   // 1. Replace `import { feature } from 'bun:bundle'` / `"bun:bundle"`
   if (src.includes("from 'bun:bundle'") || src.includes('from "bun:bundle"')) {
     src = src.replace(/import\s*\{\s*feature\s*\}\s*from\s*['"]bun:bundle['"]/g,
-      "import { feature } from '../stubs/bun-bundle.js'")
-    // Fix relative depth based on file location
-    const rel = path.relative(SRC, path.dirname(filePath))
-    const depth = rel ? '../'.repeat(rel.split('/').length) : ''
-    if (depth) {
-      src = src.replace("from '../stubs/bun-bundle.js'", `from '${depth}stubs/bun-bundle.js'`)
-    }
+      "// import { feature } from 'bun:bundle' — replaced with false")
+    // Add feature function definition
+    src = "const feature = () => false;\n" + src
     changed = true
   }
 

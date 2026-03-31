@@ -20,10 +20,10 @@ import type {
 import type { TextBlockParam } from '@anthropic-ai/sdk/resources/index.mjs'
 import type { Stream } from '@anthropic-ai/sdk/streaming.mjs'
 import { randomUUID } from 'crypto'
-import {
-  getAPIProvider,
+import { getAPIProvider,
   isFirstPartyAnthropicBaseUrl,
 } from 'src/utils/model/providers.js'
+import { getModelAPIConfig } from 'src/utils/model/apiConfig.js'
 import {
   getAttributionHeader,
   getCLISyspromptPrefix,
@@ -106,7 +106,7 @@ const autoModeStateModule = feature('TRANSCRIPT_CLASSIFIER')
   ? (require('../../utils/permissions/autoModeState.js') as typeof import('../../utils/permissions/autoModeState.js'))
   : null
 
-import { feature } from 'bun:bundle'
+import { feature } from '../../stubs/bun-bundle.js'
 import type { ClientOptions } from '@anthropic-ai/sdk'
 import {
   APIConnectionTimeoutError,
@@ -1054,7 +1054,10 @@ async function* queryModel(
   // Also naturally handles rollback/undo since removed messages won't be in the array.
   const previousRequestId = getPreviousRequestIdFromMessages(messages)
 
+  // Use custom model from configuration if set
+  const customAPIConfig = getModelAPIConfig()
   const resolvedModel =
+    customAPIConfig ? customAPIConfig.model :
     getAPIProvider() === 'bedrock' &&
     options.model.includes('application-inference-profile')
       ? ((await getInferenceProfileBackingModel(options.model)) ??
