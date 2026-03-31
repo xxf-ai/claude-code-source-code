@@ -37,12 +37,14 @@ function patchFile(filePath) {
   let src = fs.readFileSync(filePath, 'utf8')
   let changed = false
 
-  // 1. Replace `import { feature } from 'bun:bundle'` / `"bun:bundle"`
-  if (src.includes("from 'bun:bundle'") || src.includes('from "bun:bundle"')) {
-    src = src.replace(/import\s*\{\s*feature\s*\}\s*from\s*['"]bun:bundle['"]/g,
+  // 1. Replace `import { feature } from 'bun:bundle'` / `"bun:bundle"` or from any path to bun-bundle.js
+  if (src.includes("from 'bun:bundle'") || src.includes('from "bun:bundle"') || src.includes("bun-bundle.js")) {
+    src = src.replace(/import\s*\{\s*feature\s*\}\s*from\s*['"](?:bun:bundle|(?:\.\.\/)*stubs\/bun-bundle\.js)['"]/g,
       "// import { feature } from 'bun:bundle' — replaced with false")
-    // Add feature function definition
-    src = "const feature = () => false;\n" + src
+    // Add feature function definition if not already present
+    if (!src.includes("const feature = () => false;")) {
+      src = "const feature = () => false;\n" + src
+    }
     changed = true
   }
 

@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Extracts durable memories from the current session transcript
  * and writes them to the auto-memory directory (~/.claude/projects/<path>/memory/).
@@ -13,7 +14,7 @@
  * initExtractMemories() in beforeEach to get a fresh closure.
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { basename } from 'path'
 import { getIsRemoteMode } from '../../bootstrap/state.js'
 import type { CanUseToolFn } from '../../hooks/useCanUseTool.js'

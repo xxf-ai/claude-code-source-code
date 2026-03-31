@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * REPL-specific wrapper around initBridgeCore. Owns the parts that read
  * bootstrap state — gates, cwd, session ID, git context, OAuth, title
@@ -13,7 +14,7 @@
  * (SDK -p mode via query.enableRemoteControl).
  */
 
-import { feature } from '../stubs/bun-bundle.js'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { hostname } from 'os'
 import { getOriginalCwd, getSessionId } from '../bootstrap/state.js'
 import type { SDKMessage } from '../entrypoints/agentSdkTypes.js'

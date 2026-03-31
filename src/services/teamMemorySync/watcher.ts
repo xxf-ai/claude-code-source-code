@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Team Memory File Watcher
  *
@@ -7,7 +8,7 @@
  * fs.watch so first-time writes to a fresh repo get picked up.
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { type FSWatcher, watch } from 'fs'
 import { mkdir, stat } from 'fs/promises'
 import { join } from 'path'

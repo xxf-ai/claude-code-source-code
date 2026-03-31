@@ -1,6 +1,7 @@
+const feature = () => false;
 // Critical system constants extracted to break circular dependencies
 
-import { feature } from '../stubs/bun-bundle.js'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { getFeatureValue_CACHED_MAY_BE_STALE } from '../services/analytics/growthbook.js'
 import { logForDebugging } from '../utils/debug.js'
 import { isEnvDefinedFalsy } from '../utils/envUtils.js'

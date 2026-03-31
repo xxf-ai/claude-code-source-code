@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Settings Sync Service
  *
@@ -9,7 +10,7 @@
  * Backend API: anthropic/anthropic#218817
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import axios from 'axios'
 import { mkdir, readFile, stat, writeFile } from 'fs/promises'
 import pickBy from 'lodash-es/pickBy.js'

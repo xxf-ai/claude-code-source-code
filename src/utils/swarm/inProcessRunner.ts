@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * In-process teammate runner
  *
@@ -9,7 +10,7 @@
  * - Cleanup on completion or abort
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/messages.mjs'
 import { getSystemPrompt } from '../../constants/prompts.js'
 import { TEAMMATE_MESSAGE_TAG } from '../../constants/xml.js'

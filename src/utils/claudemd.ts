@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Files are loaded in the following order:
  *
@@ -25,7 +26,7 @@
  * - Non-existent files are silently ignored
  */
 
-import { feature } from '../stubs/bun-bundle.js'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import ignore from 'ignore'
 import memoize from 'lodash-es/memoize.js'
 import { Lexer } from 'marked'

@@ -1,0 +1,2 @@
+// Proactive stub
+export default {};

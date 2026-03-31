@@ -99,13 +99,20 @@ for await (const file of walk(join(BUILD, 'src'))) {
 
   // 2c. Remove bun:bundle import (feature() is already replaced)
   if (src.includes("from 'bun:bundle'") || src.includes('from "bun:bundle"')) {
-    src = src.replace(/import\s*\{\s*feature\s*\}\s*from\s*['"]bun:bundle['"];?\n?/g, '// feature() replaced with false at build time\n')
+    // Only match actual import statements, not commented ones
+    src = src.replace(/^\s*import\s*\{\s*feature\s*\}\s*from\s*['"]bun:bundle['"];?\n?/gm, '// feature() replaced with false at build time\n')
     changed = true
   }
 
   // 2d. Remove type-only import of global.d.ts
   if (src.includes("import '../global.d.ts'") || src.includes("import './global.d.ts'")) {
     src = src.replace(/import\s*['"][.\/]*global\.d\.ts['"];?\n?/g, '')
+    changed = true
+  }
+
+  // 2e. Replace special dash characters with regular dashes
+  if (src.includes('—')) {
+    src = src.replaceAll('—', '-')
     changed = true
   }
 
@@ -121,7 +128,7 @@ console.log(`✅ Phase 2: Transformed ${transformCount} files`)
 // ══════════════════════════════════════════════════════════════════════════════
 
 await writeFile(ENTRY, `#!/usr/bin/env node
-// Claude Code v${VERSION} — built from source
+// Claude Code v${VERSION} - built from source
 // Copyright (c) Anthropic PBC. All rights reserved.
 import './src/entrypoints/cli.tsx'
 `, 'utf8')
@@ -219,7 +226,7 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
         if (!await exists(p)) {
           const name = cleanMod.split('/').pop().replace(/\.[tj]sx?$/, '')
           const safeName = name.replace(/[^a-zA-Z0-9_$]/g, '_') || 'stub'
-          await writeFile(p, `// Auto-generated stub\nexport default function ${safeName}() {}\nexport const ${safeName} = () => {}\n`, 'utf8')
+          await writeFile(p, `// Auto-generated stub\nexport default function ${safeName}() {}\n`, 'utf8')
           stubCount++
         }
       }

@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Perfetto Tracing for Claude Code (Ant-only)
  *
@@ -22,7 +23,7 @@
  * 5. Open in ui.perfetto.dev to visualize
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { mkdirSync, writeFileSync } from 'fs'
 import { mkdir, writeFile } from 'fs/promises'
 import { dirname, join } from 'path'

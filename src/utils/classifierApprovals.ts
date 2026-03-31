@@ -1,9 +1,10 @@
+const feature = () => false;
 /**
  * Tracks which tool uses were auto-approved by classifiers.
  * Populated from useCanUseTool.ts and permissions.ts, read from UserToolSuccessMessage.tsx.
  */
 
-import { feature } from '../stubs/bun-bundle.js'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { createSignal } from './signal.js'
 
 type ClassifierApproval = {

@@ -1,5 +1,6 @@
+const feature = () => false;
 // biome-ignore-all assist/source/organizeImports: ANT-ONLY import markers must not be reordered
-import { feature } from '../stubs/bun-bundle.js'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { readFile, stat } from 'fs/promises'
 import { dirname } from 'path'
 import {

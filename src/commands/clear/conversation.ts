@@ -1,8 +1,9 @@
+const feature = () => false;
 /**
  * Conversation clearing utility.
  * This module has heavier dependencies and should be lazy-loaded when possible.
  */
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { randomUUID, type UUID } from 'crypto'
 import {
   getLastMainRequestId,

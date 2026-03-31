@@ -1,8 +1,9 @@
+const feature = () => false;
 /**
  * Session cache clearing utilities.
  * This module is imported at startup by main.tsx, so keep imports minimal.
  */
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import {
   clearInvokedSkills,
   setLastEmittedDate,

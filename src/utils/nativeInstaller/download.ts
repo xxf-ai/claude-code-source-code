@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Download functionality for native installer
  *
@@ -6,7 +7,7 @@
  * - GCS bucket
  */
 
-import { feature } from '../../stubs/bun-bundle.js'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import axios from 'axios'
 import { createHash } from 'crypto'
 import { chmod, writeFile } from 'fs/promises'
