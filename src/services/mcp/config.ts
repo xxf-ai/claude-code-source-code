@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { chmod, open, rename, stat, unlink } from 'fs/promises'
 import mapValues from 'lodash-es/mapValues.js'
 import memoize from 'lodash-es/memoize.js'

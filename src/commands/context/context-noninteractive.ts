@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { microcompactMessages } from '../../services/compact/microCompact.js'
 import type { AppState } from '../../state/AppStateStore.js'
 import type { Tools, ToolUseContext } from '../../Tool.js'

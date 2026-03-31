@@ -1,3 +1,4 @@
+const feature = () => false;
 // biome-ignore-all assist/source/organizeImports: ANT-ONLY import markers must not be reordered
 /**
  * Env-less Remote Control bridge core.
@@ -28,7 +29,7 @@
  * REPL-only — daemon/print stay on env-based.
  */
 
-import { feature } from 'bun:bundle'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import axios from 'axios'
 import {
   createV2ReplTransport,

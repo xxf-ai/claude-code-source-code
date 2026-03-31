@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { APIError } from '@anthropic-ai/sdk'
 import type {
   BetaStopReason,
@@ -162,8 +163,8 @@ function getAnthropicEnvMetadata() {
 }
 
 function getBuildAgeMinutes(): number | undefined {
-  if (!MACRO.BUILD_TIME) return undefined
-  const buildTime = new Date(MACRO.BUILD_TIME).getTime()
+  if (!'2026-03-31T14:20:23.732Z') return undefined
+  const buildTime = new Date('2026-03-31T14:20:23.732Z').getTime()
   if (isNaN(buildTime)) return undefined
   return Math.floor((Date.now() - buildTime) / 60000)
 }

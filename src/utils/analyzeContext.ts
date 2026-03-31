@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import type { Anthropic } from '@anthropic-ai/sdk'
 import {
   getSystemPrompt,

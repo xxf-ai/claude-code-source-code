@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle';
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false;
 import type { ToolResultBlockParam } from '@anthropic-ai/sdk/resources/index.mjs';
 import { copyFile, stat as fsStat, truncate as fsTruncate, link } from 'fs/promises';
 import * as React from 'react';

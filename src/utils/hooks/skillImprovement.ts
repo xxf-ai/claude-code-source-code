@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { getInvokedSkillsForAgent } from '../../bootstrap/state.js'
 import { getFeatureValue_CACHED_MAY_BE_STALE } from '../../services/analytics/growthbook.js'
 import {

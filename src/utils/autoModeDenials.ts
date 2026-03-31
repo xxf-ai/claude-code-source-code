@@ -1,9 +1,10 @@
+const feature = () => false;
 /**
  * Tracks commands recently denied by the auto mode classifier.
  * Populated from useCanUseTool.ts, read from RecentDenialsTab.tsx in /permissions.
  */
 
-import { feature } from 'bun:bundle'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 
 export type AutoModeDenial = {
   toolName: string

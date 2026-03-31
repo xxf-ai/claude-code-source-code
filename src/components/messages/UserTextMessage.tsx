@@ -1,5 +1,6 @@
+const feature = () => false;
 import { c as _c } from "react/compiler-runtime";
-import { feature } from 'bun:bundle';
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false;
 import type { TextBlockParam } from '@anthropic-ai/sdk/resources/index.mjs';
 import * as React from 'react';
 import { NO_CONTENT_MESSAGE } from '../../constants/messages.js';

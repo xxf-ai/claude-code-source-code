@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import chalk from 'chalk'
 import { markPostCompaction } from 'src/bootstrap/state.js'
 import { getSystemPrompt } from '../../constants/prompts.js'

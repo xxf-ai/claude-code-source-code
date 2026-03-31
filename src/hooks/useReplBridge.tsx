@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle';
+const feature = () => false;
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import React, { useCallback, useEffect, useRef } from 'react';
 import { setMainLoopModelOverride } from '../bootstrap/state.js';
 import { type BridgePermissionCallbacks, type BridgePermissionResponse, isBridgePermissionResponse } from '../bridge/bridgePermissionCallbacks.js';

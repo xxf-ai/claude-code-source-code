@@ -1,5 +1,6 @@
+const feature = () => false;
 import { c as _c } from "react/compiler-runtime";
-import { feature } from 'bun:bundle';
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import figures from 'figures';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTerminalSize } from '../hooks/useTerminalSize.js';

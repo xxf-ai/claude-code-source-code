@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { randomUUID } from 'crypto'
 import { getSdkBetas, getSessionId } from 'src/bootstrap/state.js'
 import { DEFAULT_OUTPUT_STYLE_NAME } from 'src/constants/outputStyles.js'
@@ -71,7 +72,7 @@ export function buildSystemInitMessage(inputs: SystemInitInputs): SDKMessage {
       .map(c => c.name),
     apiKeySource: getAnthropicApiKeyWithSource().source as ApiKeySource,
     betas: getSdkBetas(),
-    claude_code_version: MACRO.VERSION,
+    claude_code_version: '2.1.88',
     output_style: outputStyle,
     agents: inputs.agents.map(agent => agent.agentType),
     skills: inputs.skills

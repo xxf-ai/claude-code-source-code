@@ -1,3 +1,4 @@
+const feature = () => false;
 import { c as _c } from "react/compiler-runtime";
 // biome-ignore-all assist/source/organizeImports: ANT-ONLY import markers must not be reordered
 import * as React from 'react';
@@ -25,7 +26,7 @@ import { getStartupPerfLogPath, isDetailedProfilingEnabled } from 'src/utils/sta
 import { EmergencyTip } from './EmergencyTip.js';
 import { VoiceModeNotice } from './VoiceModeNotice.js';
 import { Opus1mMergeNotice } from './Opus1mMergeNotice.js';
-import { feature } from 'bun:bundle';
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false;
 
 // Conditional require so ChannelsNotice.tsx tree-shakes when both flags are
 // false. A module-scope helper component inside a feature() ternary does NOT
@@ -92,7 +93,7 @@ export function LogoV2() {
   if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
     t2 = () => {
       const currentConfig = getGlobalConfig();
-      if (currentConfig.lastReleaseNotesSeen === MACRO.VERSION) {
+      if (currentConfig.lastReleaseNotesSeen === '2.1.88') {
         return;
       }
       saveGlobalConfig(_temp3);
@@ -526,12 +527,12 @@ export function LogoV2() {
   return t41;
 }
 function _temp3(current) {
-  if (current.lastReleaseNotesSeen === MACRO.VERSION) {
+  if (current.lastReleaseNotesSeen === '2.1.88') {
     return current;
   }
   return {
     ...current,
-    lastReleaseNotesSeen: MACRO.VERSION
+    lastReleaseNotesSeen: '2.1.88'
   };
 }
 function _temp2(s_0) {

@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import mergeWith from 'lodash-es/mergeWith.js'
 import { dirname, join, resolve } from 'path'
 import { z } from 'zod/v4'

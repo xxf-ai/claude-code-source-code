@@ -1,5 +1,6 @@
+const feature = () => false;
 import { c as _c } from "react/compiler-runtime";
-import { feature } from 'bun:bundle';
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false;
 import { basename } from 'path';
 import React, { useRef } from 'react';
 import { useMinDisplayTime } from '../../hooks/useMinDisplayTime.js';

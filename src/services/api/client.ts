@@ -1,6 +1,7 @@
 import Anthropic, { type ClientOptions } from '@anthropic-ai/sdk'
 import { randomUUID } from 'crypto'
 import type { GoogleAuth } from 'google-auth-library'
+import { getModelAPIConfig } from 'src/utils/model/apiConfig.js'
 import {
   checkAndRefreshOAuthTokenIfNeeded,
   getAnthropicApiKey,
@@ -98,6 +99,47 @@ export async function getAnthropicClient({
   fetchOverride?: ClientOptions['fetch']
   source?: string
 }): Promise<Anthropic> {
+  // Check for custom model API configuration
+  const customAPIConfig = getModelAPIConfig()
+  if (customAPIConfig) {
+    const containerId = process.env.CLAUDE_CODE_CONTAINER_ID
+    const remoteSessionId = process.env.CLAUDE_CODE_REMOTE_SESSION_ID
+    const clientApp = process.env.CLAUDE_AGENT_SDK_CLIENT_APP
+    const customHeaders = getCustomHeaders()
+    const defaultHeaders: { [key: string]: string } = {
+      'x-app': 'cli',
+      'User-Agent': getUserAgent(),
+      'X-Claude-Code-Session-Id': getSessionId(),
+      'Authorization': `Bearer ${customAPIConfig.apiKey}`,
+      ...customAPIConfig.headers,
+      ...customHeaders,
+      ...(containerId ? { 'x-claude-remote-container-id': containerId } : {}),
+      ...(remoteSessionId
+        ? { 'x-claude-remote-session-id': remoteSessionId }
+        : {}),
+      // SDK consumers can identify their app/library for backend analytics
+      ...(clientApp ? { 'x-client-app': clientApp } : {}),
+    }
+
+    const resolvedFetch = buildFetch(fetchOverride, source)
+
+    const ARGS = {
+      defaultHeaders,
+      maxRetries,
+      timeout: parseInt(process.env.API_TIMEOUT_MS || String(600 * 1000), 10),
+      dangerouslyAllowBrowser: true,
+      baseURL: customAPIConfig.endpoint,
+      fetchOptions: getProxyFetchOptions({
+        forAnthropicAPI: true,
+      }) as ClientOptions['fetchOptions'],
+      ...(resolvedFetch && {
+        fetch: resolvedFetch,
+      }),
+    }
+
+    return new Anthropic(ARGS)
+  }
+
   const containerId = process.env.CLAUDE_CODE_CONTAINER_ID
   const remoteSessionId = process.env.CLAUDE_CODE_REMOTE_SESSION_ID
   const clientApp = process.env.CLAUDE_AGENT_SDK_CLIENT_APP
@@ -319,6 +361,11 @@ async function configureApiKeyHeaders(
   headers: Record<string, string>,
   isNonInteractiveSession: boolean,
 ): Promise<void> {
+  // Skip if custom API is configured
+  if (getModelAPIConfig()) {
+    return
+  }
+
   const token =
     process.env.ANTHROPIC_AUTH_TOKEN ||
     (await getApiKeyFromApiKeyHelper(isNonInteractiveSession))

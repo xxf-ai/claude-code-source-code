@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Shared attachment validation + resolution for SendUserMessage and
  * SendUserFile. Lives in BriefTool/ so the dynamic `./upload.js` import
@@ -5,7 +6,7 @@
  * (axios, crypto, auth utils) remains tree-shakeable from non-bridge builds.
  */
 
-import { feature } from 'bun:bundle'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { stat } from 'fs/promises'
 
 import type { ValidationResult } from '../../Tool.js'

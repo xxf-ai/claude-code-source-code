@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Prompt templates for the background memory extraction agent.
  *
@@ -9,7 +10,7 @@
  * overlap the system prompt's harmlessly.
  */
 
-import { feature } from 'bun:bundle'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import {
   MEMORY_FRONTMATTER_EXAMPLE,
   TYPES_SECTION_COMBINED,

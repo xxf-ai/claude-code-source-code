@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle';
+const feature = () => false;
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import chalk from 'chalk';
 import React, { useMemo, useRef } from 'react';
 import { useVoiceState } from '../context/voice.js';

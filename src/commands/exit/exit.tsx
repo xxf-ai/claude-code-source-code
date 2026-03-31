@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle';
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false;
 import { spawnSync } from 'child_process';
 import sample from 'lodash-es/sample.js';
 import * as React from 'react';

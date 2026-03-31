@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { getRemoteControlAtStartup } from '../../utils/config.js'
 import {
   EDITOR_MODES,

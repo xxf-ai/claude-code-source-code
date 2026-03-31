@@ -1,3 +1,4 @@
+const feature = () => false;
 // These side-effects must run before all other imports:
 // 1. profileCheckpoint marks entry before heavy module evaluation begins
 // 2. startMdmRawRead fires MDM subprocesses (plutil/reg query) so they run in
@@ -18,7 +19,7 @@ import { ensureKeychainPrefetchCompleted, startKeychainPrefetch } from './utils/
 
 // eslint-disable-next-line custom-rules/no-top-level-side-effects
 startKeychainPrefetch();
-import { feature } from 'bun:bundle';
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import { Command as CommanderCommand, InvalidArgumentError, Option } from '@commander-js/extra-typings';
 import chalk from 'chalk';
 import { readFileSync } from 'fs';
@@ -2487,7 +2488,7 @@ async function run(): Promise<CommanderCommand> {
       }
     }
     logForDiagnosticsNoPII('info', 'started', {
-      version: MACRO.VERSION,
+      version: '2.1.88',
       is_native_binary: isInBundledMode()
     });
     registerCleanup(async () => {
@@ -3220,7 +3221,7 @@ async function run(): Promise<CommanderCommand> {
           sshSession = await createSSHSession({
             host: _pendingSSH.host,
             cwd: _pendingSSH.cwd,
-            localVersion: MACRO.VERSION,
+            localVersion: '2.1.88',
             permissionMode: _pendingSSH.permissionMode,
             dangerouslySkipPermissions: _pendingSSH.dangerouslySkipPermissions,
             extraCliArgs: _pendingSSH.extraCliArgs
@@ -3805,7 +3806,7 @@ async function run(): Promise<CommanderCommand> {
         pendingHookMessages
       }, renderAndRun);
     }
-  }).version(`${MACRO.VERSION} (Claude Code)`, '-v, --version', 'Output the version number');
+  }).version(`${'2.1.88'} (Claude Code)`, '-v, --version', 'Output the version number');
 
   // Worktree flags
   program.option('-w, --worktree [name]', 'Create a new git worktree for this session (optionally specify a name)');

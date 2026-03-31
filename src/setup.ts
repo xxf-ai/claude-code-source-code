@@ -1,6 +1,7 @@
+const feature = () => false;
 /* eslint-disable custom-rules/no-process-exit */
 
-import { feature } from 'bun:bundle'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import chalk from 'chalk'
 import {
   type AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS,

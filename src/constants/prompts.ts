@@ -1,3 +1,4 @@
+const feature = () => false;
 // biome-ignore-all assist/source/organizeImports: ANT-ONLY import markers must not be reordered
 import { type as osType, version as osVersion, release as osRelease } from 'os'
 import { env } from '../utils/env.js'
@@ -45,7 +46,7 @@ import {
 } from '../utils/permissions/filesystem.js'
 import { isEnvTruthy } from '../utils/envUtils.js'
 import { isReplModeEnabled } from '../tools/REPLTool/constants.js'
-import { feature } from 'bun:bundle'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { getFeatureValue_CACHED_MAY_BE_STALE } from 'src/services/analytics/growthbook.js'
 import { shouldUseGlobalCacheScope } from '../utils/betas.js'
 import { isForkSubagentEnabled } from '../tools/AgentTool/forkSubagent.js'
@@ -215,7 +216,7 @@ function getSimpleDoingTasksSection(): string {
 
   const userHelpSubitems = [
     `/help: Get help with using Claude Code`,
-    `To give feedback, users should ${MACRO.ISSUES_EXPLAINER}`,
+    `To give feedback, users should ${'https://github.com/anthropics/claude-code/issues/new/choose'}`,
   ]
 
   const items = [

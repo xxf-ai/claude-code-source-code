@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle';
+const feature = () => false;
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import * as React from 'react';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { logEvent } from 'src/services/analytics/index.js';
@@ -76,7 +77,7 @@ function buildStatusLineCommandInput(permissionMode: PermissionMode, exceeds200k
       project_dir: getOriginalCwd(),
       added_dirs: addedDirs
     },
-    version: MACRO.VERSION,
+    version: '2.1.88',
     output_style: {
       name: outputStyleName
     },

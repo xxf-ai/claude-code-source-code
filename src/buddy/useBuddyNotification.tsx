@@ -1,5 +1,6 @@
+const feature = () => false;
 import { c as _c } from "react/compiler-runtime";
-import { feature } from 'bun:bundle';
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false;
 import React, { useEffect } from 'react';
 import { useNotifications } from '../context/notifications.js';
 import { Text } from '../ink.js';

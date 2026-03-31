@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import { stat } from 'fs/promises'
 import memoize from 'lodash-es/memoize.js'
 import { env, JETBRAINS_IDES } from './env.js'

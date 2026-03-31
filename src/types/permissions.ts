@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Pure permission type definitions extracted to break import cycles.
  *
@@ -6,7 +7,7 @@
  * to avoid circular dependencies.
  */
 
-import { feature } from 'bun:bundle'
+// // // // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false — replaced with false
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/messages.mjs'
 
 // ============================================================================

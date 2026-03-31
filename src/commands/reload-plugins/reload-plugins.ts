@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import { getIsRemoteMode } from '../../bootstrap/state.js'
 import { redownloadUserSettings } from '../../services/settingsSync/index.js'
 import type { LocalCommandCall } from '../../types/command.js'

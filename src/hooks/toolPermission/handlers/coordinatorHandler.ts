@@ -1,4 +1,5 @@
-import { feature } from 'bun:bundle'
+const feature = () => false;
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import type { PendingClassifierCheck } from '../../../types/permissions.js'
 import { logError } from '../../../utils/log.js'
 import type { PermissionDecision } from '../../../utils/permissions/PermissionResult.js'

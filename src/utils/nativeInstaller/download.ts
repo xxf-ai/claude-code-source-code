@@ -1,3 +1,4 @@
+const feature = () => false;
 /**
  * Download functionality for native installer
  *
@@ -6,7 +7,7 @@
  * - GCS bucket
  */
 
-import { feature } from 'bun:bundle'
+// // // // import { feature } from 'bun:bundle' — replaced with false — replaced with false — replaced with false — replaced with false
 import axios from 'axios'
 import { createHash } from 'crypto'
 import { chmod, writeFile } from 'fs/promises'
@@ -35,7 +36,7 @@ export async function getLatestVersionFromArtifactory(
     'npm',
     [
       'view',
-      `${MACRO.NATIVE_PACKAGE_URL}@${tag}`,
+      `${'@anthropic-ai/claude-code'}@${tag}`,
       'version',
       '--prefer-online',
       '--registry',
@@ -65,7 +66,7 @@ export async function getLatestVersionFromArtifactory(
     source_npm: true,
   })
   logForDebugging(
-    `npm view ${MACRO.NATIVE_PACKAGE_URL}@${tag} version: ${stdout}`,
+    `npm view ${'@anthropic-ai/claude-code'}@${tag} version: ${stdout}`,
   )
   const latestVersion = stdout.trim()
   return latestVersion
@@ -159,7 +160,7 @@ export async function downloadVersionFromArtifactory(
 
   // Get the platform-specific package name
   const platform = getPlatform()
-  const platformPackageName = `${MACRO.NATIVE_PACKAGE_URL}-${platform}`
+  const platformPackageName = `${'@anthropic-ai/claude-code'}-${platform}`
 
   // Fetch integrity hash for the platform-specific package
   logForDebugging(
@@ -204,7 +205,7 @@ export async function downloadVersionFromArtifactory(
     name: 'claude-native-installer',
     version: '0.0.1',
     dependencies: {
-      [MACRO.NATIVE_PACKAGE_URL!]: version,
+      ['@anthropic-ai/claude-code'!]: version,
     },
   }
 
@@ -219,10 +220,10 @@ export async function downloadVersionFromArtifactory(
         name: 'claude-native-installer',
         version: '0.0.1',
         dependencies: {
-          [MACRO.NATIVE_PACKAGE_URL!]: version,
+          ['@anthropic-ai/claude-code'!]: version,
         },
       },
-      [`node_modules/${MACRO.NATIVE_PACKAGE_URL}`]: {
+      [`node_modules/${'@anthropic-ai/claude-code'}`]: {
         version: version,
         optionalDependencies: {
           [platformPackageName]: version,
@@ -264,7 +265,7 @@ export async function downloadVersionFromArtifactory(
   }
 
   logForDebugging(
-    `Successfully downloaded and verified ${MACRO.NATIVE_PACKAGE_URL}@${version}`,
+    `Successfully downloaded and verified ${'@anthropic-ai/claude-code'}@${version}`,
   )
 }
 
